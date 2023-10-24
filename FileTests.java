@@ -38,4 +38,17 @@ public class FileTests {
         }
     }
 
+    @Test
+    public void testGetFiles3() throws IOException {
+        File f = new File("some-files/a.txt");
+        List<File> result = new ArrayList<>();
+        result.add(new File("some-files/a.txt"));
+        
+        // Check the results are equal, and order doesn't matter
+        assertEquals(result.size(), FileExample.getFiles(f).size());
+        for(File file: result) {
+            assertTrue(FileExample.getFiles(f).contains(file));
+        }
+    }
+
 }
